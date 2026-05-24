@@ -1,3 +1,4 @@
+-- SELECT 
 -- Task A: Get all columns from students
 SELECT * FROM students;
 
@@ -6,3 +7,16 @@ SELECT name, course FROM students;
 
 -- Task C: Get name and scaled GPA
 SELECT name, gpa * 100 AS gpa_scaled FROM students;
+
+-- WHERE
+-- Task A: Get the name and course of all BSIT students.
+SELECT name, course FROM students WHERE course = 'BSIT';
+
+-- Task B: Get the name and gpa of students whose GPA is below 2.0.
+SELECT name, gpa FROM students WHERE gpa < 2.0;
+
+-- Task C: Get the name and year_level of BSIT students who are in year 1.
+SELECT name, year_level FROM students WHERE course = 'BSIT' AND year_level = 1;
+
+-- Task D: Get the name of any student whose GPA is NULL.
+SELECT name FROM students WHERE gpa IS NULL;
