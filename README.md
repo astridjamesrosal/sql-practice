@@ -1,0 +1,3 @@
+This repository is the Phase 2D of a structured pre-college roadmap where I'm building towards a capstone project which is the Flask Finance Tracker. Because of this, I will first learn SQL before Flask and not learn alongside it.
+
+I am going to learn about core queries, joins, schema design, and sqlite3 bridge. I started with sqlite3 and not sqlAlchemy because the capstone required understanding database layers directly and not just depending on abstraction. sqlite3 provides raw SQL, no abstraction and it ships with python. I will encounter SQLAlchemy later, just not right now.
