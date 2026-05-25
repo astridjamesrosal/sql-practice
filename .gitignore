@@ -1,1 +1,1 @@
-echo "*.db" > .gitignore
+*.db
