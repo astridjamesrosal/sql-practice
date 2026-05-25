@@ -36,13 +36,26 @@ SELECT name, gpa FROM students WHERE course = 'BSIT' ORDER BY gpa ASC;
 
 -- GROUP BY
 -- Task A: Count how many students are in each course.
-SELECT course, COUNT(*) FROM students GROUP BY course
+SELECT course, COUNT(*) FROM students GROUP BY course;
 
 -- Task B: Get the average GPA per course.
-SELECT course, AVG(gpa) FROM students GROUP BY course
+SELECT course, AVG(gpa) FROM students GROUP BY course;
 
 -- Task C: Get the highest and lowest GPA per course.
-SELECT course, MIN(gpa), MAX(gpa) FROM students GROUP BY course
+SELECT course, MIN(gpa), MAX(gpa) FROM students GROUP BY course;
 
 -- Task D: Count how many students per course have a non-NULL GPA.
-SELECT course, COUNT(gpa) FROM students GROUP BY course
+SELECT course, COUNT(gpa) FROM students GROUP BY course;
+
+-- HAVING
+-- Task A: Get courses where the average GPA is above 2.0.
+SELECT course, AVG(gpa) FROM students GROUP BY course HAVING AVG(gpa) > 2.0;
+
+-- Task B: Get courses that have more than 2 students.
+SELECT course, COUNT(*) FROM students GROUP BY course HAVING COUNT(*) > 2;
+
+-- Task C: Get courses where the highest GPA is above 2.5.
+SELECT course, MAX(gpa) FROM students GROUP BY course HAVING MAX(gpa) > 2.5;
+
+-- Task D: Get courses with more than 2 students AND an average GPA below 2.5.
+SELECT course, COUNT(*), AVG(gpa) FROM students GROUP BY course HAVING COUNT(*) > 2 AND AVG(gpa) < 2.5;
