@@ -20,3 +20,16 @@ SELECT name, year_level FROM students WHERE course = 'BSIT' AND year_level = 1;
 
 -- Task D: Get the name of any student whose GPA is NULL.
 SELECT name FROM students WHERE gpa IS NULL;
+
+-- ORDER BY
+-- Task A: Get name and gpa of all students, ordered by GPA from highest to lowest.
+SELECT name, gpa FROM students ORDER BY gpa DESC;
+
+-- Task B: Get name and course, ordered by course name alphabetically.
+SELECT name, course FROM students ORDER BY course ASC;
+
+-- Task C: Get name, course, and gpa of all students, ordered by course ascending, then GPA descending within each course.
+SELECT name, course, gpa FROM students ORDER BY course ASC, gpa DESC;
+
+-- Task D: Get name and gpa of BSIT students only, ordered by GPA ascending.
+SELECT name, gpa FROM students WHERE course = 'BSIT' ORDER BY gpa ASC;
