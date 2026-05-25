@@ -33,3 +33,16 @@ SELECT name, course, gpa FROM students ORDER BY course ASC, gpa DESC;
 
 -- Task D: Get name and gpa of BSIT students only, ordered by GPA ascending.
 SELECT name, gpa FROM students WHERE course = 'BSIT' ORDER BY gpa ASC;
+
+-- GROUP BY
+-- Task A: Count how many students are in each course.
+SELECT course, COUNT(*) FROM students GROUP BY course
+
+-- Task B: Get the average GPA per course.
+SELECT course, AVG(gpa) FROM students GROUP BY course
+
+-- Task C: Get the highest and lowest GPA per course.
+SELECT course, MIN(gpa), MAX(gpa) FROM students GROUP BY course
+
+-- Task D: Count how many students per course have a non-NULL GPA.
+SELECT course, COUNT(gpa) FROM students GROUP BY course
