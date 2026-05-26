@@ -12,13 +12,13 @@ INSERT INTO Books (title, author, year, status)
 VALUES ('Our Perfect Storm', 'Carley Fortune', 2026, 'available');
 
 -- SELECT
--- Get All the Books
+-- Get All the Books.
 SELECT * FROM Books;
 
--- Get All the Books with the status of available
+-- Get All the Books with the status of available.
 SELECT * FROM Books WHERE status = 'available';
 
--- Get only the title and author of All the Books ordered by Year
+-- Get only the title and author of All the Books ordered by Year.
 SELECT title, author FROM Books ORDER BY year ASC;
 
 -- UPDATE
@@ -35,4 +35,17 @@ WHERE book_id = 1;
 -- Update the status of Our Perfect Storm book to borrowed because it was now borrowed.
 UPDATE Books
 SET status = 'borrowed'
+WHERE book_id = 3;
+
+-- DELETE
+-- Remove The Night We Met book because it is to damaged to be repaired.
+DELETE FROM Books
+WHERE book_id = 1;
+
+-- Remove the Yesteryear book because it was recalled by the publisher.
+DELETE FROM Books
+WHERE book_id = 2;
+
+-- Remove the Our Perfect Storm book because it was reportedly stolen.
+DELETE FROM Books
 WHERE book_id = 3;
