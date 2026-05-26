@@ -84,3 +84,50 @@ DELETE FROM Accounts WHERE account_id = 2;
 
 -- Delete Account Id 3, Luna Cruz moved away and requested deletion.
 DELETE FROM Accounts WHERE account_id = 3;
+
+-- ==================
+-- TRANSACTIONS
+-- ==================
+
+-- INSERT
+-- Maria Santos (account_id: 1) borrowed The Night We Met (book_id: 1) on 2026-05-01, not yet returned.
+INSERT INTO Transactions (account_id, book_id, borrow_date) 
+VALUES (1, 1, '2026-05-01');
+
+-- James Reyes (account_id: 2) borrowed Yesteryear (book_id: 2) on 2026-05-10, returned 2026-05-20.
+INSERT INTO Transactions (account_id, book_id, borrow_date, return_date) 
+VALUES (2, 2, '2026-05-10', '2026-05-20');
+
+-- Luna Cruz (account_id: 3) borrowed Our Perfect Storm (book_id: 3) on 2026-05-15, not yet returned.
+INSERT INTO Transactions (account_id, book_id, borrow_date) 
+VALUES (3, 3, '2026-05-15');
+
+-- SELECT
+-- Get all transactions.
+SELECT * FROM Transactions;
+
+-- Get all transactions that have not been returned yet.
+SELECT * FROM Transactions WHERE return_date IS NULL;
+
+-- Get all transactions ordered by borrow date.
+SELECT * FROM Transactions ORDER BY borrow_date ASC;
+
+-- UPDATE
+-- Maria Santos just returned The Night We Met today (2026-05-26) — update transaction_id 1.
+UPDATE Transactions SET return_date = '2026-05-26' WHERE transaction_id = 1;
+
+-- Luna Cruz's return date was recorded incorrectly — update it to 2026-05-25 on transaction_id 3.
+UPDATE Transactions SET return_date = '2026-05-25' WHERE transaction_id = 3;
+
+-- James Reyes borrowed Our Perfect Storm again (book_id: 3) — update transaction_id 2.
+UPDATE Transactions SET return_date = '2026-05-26' WHERE transaction_id = 2;
+
+-- DELETE
+-- The transaction record for James Reyes borrowing Yesteryear is a duplicate — remove transaction_id 2.
+DELETE FROM Transactions WHERE transaction_id = 2;
+
+-- Luna Cruz's transaction was recorded under the wrong account — delete transaction_id 3.
+DELETE FROM Transactions WHERE transaction_id = 3;
+
+-- Remove Maria Santos' transaction as the book record no longer exists — delete transaction_id 1.
+DELETE FROM Transactions WHERE transaction_id = 1;
