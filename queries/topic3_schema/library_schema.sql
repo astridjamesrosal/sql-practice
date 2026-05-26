@@ -15,7 +15,7 @@ CREATE TABLE Accounts (
 CREATE TABLE Transactions (
     transaction_id INTEGER PRIMARY KEY,
     book_id INTEGER,
-    account_id INTEGER.
+    account_id INTEGER,
     borrow_date TEXT,
     return_date TEXT,
     FOREIGN KEY (book_id) REFERENCES Books(book_id),
