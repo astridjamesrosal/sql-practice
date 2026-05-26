@@ -20,3 +20,19 @@ SELECT * FROM Books WHERE status = 'available';
 
 -- Get only the title and author of All the Books ordered by Year
 SELECT title, author FROM Books ORDER BY year ASC;
+
+-- UPDATE
+-- Update the status of the Yesteryear book to Available because it is now returned.
+UPDATE Books
+SET status = 'available'
+WHERE book_id = 2;
+
+-- Update the year of The Night We Met book to 2025 because we got it reprinted.
+UPDATE Books
+SET year = 2025
+WHERE book_id = 1;
+
+-- Update the status of Our Perfect Storm book to borrowed because it was now borrowed.
+UPDATE Books
+SET status = 'borrowed'
+WHERE book_id = 3;
