@@ -11,3 +11,12 @@ VALUES ('Yesteryear', 'Caro Claire Burke', 2026, 'borrowed');
 INSERT INTO Books (title, author, year, status)
 VALUES ('Our Perfect Storm', 'Carley Fortune', 2026, 'available');
 
+-- SELECT
+-- Get All the Books
+SELECT * FROM Books;
+
+-- Get All the Books with the status of available
+SELECT * FROM Books WHERE status = 'available';
+
+-- Get only the title and author of All the Books ordered by Year
+SELECT title, author FROM Books ORDER BY year ASC;
