@@ -41,18 +41,46 @@ def add_book(title, author, year, status):
     cursor.execute("INSERT INTO Books (title, author, year, status) VALUES (?, ?, ?, ?)", (title, author, year, status))
     connection.commit()
 
+def add_account(name, contact):
+    cursor.execute("INSERT INTO Accounts (name, contact) VALUES (?, ?)", (name, contact))
+    connection.commit()
+
+def add_transaction(account_id, book_id, borrow_date, return_date=None):
+    cursor.execute("INSERT INTO Transactions (account_id, book_id, borrow_date, return_date) VALUES (?, ?, ?, ?)", (account_id, book_id, borrow_date, return_date))
+    connection.commit()
+
+def update_book_status(book_id, status):
+    cursor.execute("UPDATE Books SET status = ? WHERE book_id = ?;", (status, book_id))
+    connection.commit()
+
+def delete_book(book_id):
+    cursor.execute("DELETE FROM Books WHERE book_id = ?", (book_id,))
+    connection.commit()
+
 def get_all(table_name):
     query = f"SELECT * FROM {table_name}"
     cursor.execute(query)
     print(cursor.fetchall())
 
 create_tables()
+
+# Insert
 add_book("The Night We Met", "Abby Jimenez", 2026, "available")
-add_book("Yesteryear", "Caro Claire Burke", 2026, "borrowed")
-add_book("Our Perfect Storm", "Carley Fortune", 2026, "available")
+add_account("Maria Santos", "09171234567")
+add_transaction(1, 1, "2026-05-01")
+
+# View before changes
 get_all("Books")
 get_all("Accounts")
 get_all("Transactions")
+
+# Update and Delete
+update_book_status(1, "borrowed")
+delete_book(1)
+
+# View after changes
+get_all("Books")
+get_all("Accounts")
 
 #Close the connection
 connection.close()
