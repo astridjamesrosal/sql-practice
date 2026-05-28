@@ -58,6 +58,10 @@ def delete_book(book_id):
     connection.commit()
 
 def get_all(table_name):
+    allowed = ["Books", "Accounts", "Transactions"]
+    if table_name not in allowed:
+        print(f"Invalid table name: {table_name}")
+        return
     query = f"SELECT * FROM {table_name}"
     cursor.execute(query)
     print(cursor.fetchall())
