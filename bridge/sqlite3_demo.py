@@ -1,7 +1,7 @@
 import sqlite3
-#Connect to the database (creates library.db if it doesn't exist)
+#Connect to the database and if the file doesn't exist, it creates library.db instead.
 connection = sqlite3.connect('library.db')
-#Create a cursor — the object that sends SQL commands to the database
+#Create a cursor which is the object that sends SQL commands to the database
 cursor = connection.cursor()
 
 def create_tables():
@@ -68,12 +68,12 @@ def get_all(table_name):
 
 create_tables()
 
-# Insert
+#Insert
 add_book("The Night We Met", "Abby Jimenez", 2026, "available")
 add_account("Maria Santos", "09171234567")
 add_transaction(1, 1, "2026-05-01")
 
-# View before changes
+#View before changes
 get_all("Books")
 get_all("Accounts")
 get_all("Transactions")
@@ -82,7 +82,7 @@ get_all("Transactions")
 update_book_status(1, "borrowed")
 delete_book(1)
 
-# View after changes
+#View after changes
 get_all("Books")
 get_all("Accounts")
 
